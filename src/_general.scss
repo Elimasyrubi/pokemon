@@ -1,0 +1,27 @@
+//COLORS
+$color1 : #c4c4c4;
+
+//fontSize
+
+
+//Mixing
+@mixin  generalContainer {
+    max-width: 95%;
+    margin: 0 auto;
+    /* Desktop */
+    @media (min-width: 1200px) { 
+        max-width: 1200px;
+    }
+}
+@mixin subTitle {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    @media (min-width: 768px) { 
+        font-size: 1.7rem;
+    }
+}
+@mixin textMobile {
+    line-height: 2rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+}

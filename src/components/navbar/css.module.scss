@@ -1,0 +1,9 @@
+@import '../../general';
+.container{
+    @include generalContainer;
+    text-align: center;
+    padding: 1rem;
+    .logo{
+        max-width: 100px;
+    }
+}
