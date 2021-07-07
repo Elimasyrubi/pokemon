@@ -10,7 +10,9 @@ const Home = () => {
   });
  const [page, setPage] = useState(0)
  const [searchText, setSearchText] = useState('')
+ const [errorResponse, setErrorResponse] = useState(false)
 
+ //get pokemon list
   const getPokemonList = async () =>{
     const limit = 21;
     const offset = 21 * page;
@@ -36,6 +38,7 @@ const Home = () => {
         loading: false,
         totalPages: Math.floor(data.count / 21),
       });
+      setErrorResponse(false)
     } catch (error) {
       console.log(error);
       setstate({
@@ -85,6 +88,7 @@ const Home = () => {
     getPokemonList()
   }
 
+  //get single pokemon
 const getsinglePokemon = async () =>{
  const url = `https://pokeapi.co/api/v2/pokemon/${searchText}`;
     try{
@@ -95,8 +99,10 @@ const getsinglePokemon = async () =>{
             pokemonList: [data],
             loading: false,
           });
+          setErrorResponse(false)
 
     }catch(error){
+      setErrorResponse(true)
     }
   }
 
@@ -112,6 +118,7 @@ const getsinglePokemon = async () =>{
       getSinglePokemonFn={getSinglePokemonFn}
       searchText={searchText}
       cleanSearchInputFn={cleanSearchInputFn}
+      errorResponse={errorResponse}
       
     />
   );

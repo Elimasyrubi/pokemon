@@ -10,6 +10,7 @@ import css from './css.module.scss';
 const HomeView = ({
     pokemonList,
     loading,
+    errorResponse,
     nextPageFn,
     previusPageFn,
     totalPages,
@@ -18,7 +19,7 @@ const HomeView = ({
     getSinglePokemonFn,
     searchText,
     cleanSearchInputFn,
-    
+
 }) => {
     return (
         <div className={css.container}>
@@ -32,27 +33,30 @@ const HomeView = ({
                     value={searchText}
                 />
                 <button onClick={cleanSearchInputFn} type='button' className={css.cleanIcon}>
-                {searchText.length > 0 ? <i className="fas fa-times"></i> : null}
+                    {searchText.length > 0 ? <i className="fas fa-times"></i> : null}
                 </button>
-               
-               
+
+
             </div>
             <Pagination
-                    nextPageFn={nextPageFn}
-                    previusPageFn={previusPageFn}
-                    totalPages={totalPages}
-                    page={page}
-                />
+                nextPageFn={nextPageFn}
+                previusPageFn={previusPageFn}
+                totalPages={totalPages}
+                page={page}
+            />
             {loading === true ? <Loading /> : (
                 <>
-                    <div className={css.cardContainer}>
-                        {pokemonList.map((pokemon) => (
-                            <PokemonCard
-                                key={pokemon.name}
-                                pokemon={pokemon}
-                            />
-                        ))}
-                    </div>
+                    {errorResponse === true ? <p>Pokemon not found, please try again</p> : (
+                        <div className={css.cardContainer}>
+                            {pokemonList.map((pokemon) => (
+                                <PokemonCard
+                                    key={pokemon.name}
+                                    pokemon={pokemon}
+                                />
+                            ))}
+                        </div>
+                    )}
+
                 </>
             )}
 
@@ -63,6 +67,7 @@ const HomeView = ({
 HomeView.defaultProps = {
     pokemonList: [],
     loading: false,
+    errorResponse: false,
     cleanSearchInputFn: () => { },
     getSinglePokemonFn: () => { },
     getTextFn: () => { },
@@ -76,6 +81,7 @@ HomeView.defaultProps = {
 HomeView.propTypes = {
     pokemonList: PropTypes.array,
     loading: PropTypes.bool,
+    errorResponse: PropTypes.bool,
     cleanSearchInputFn: PropTypes.func,
     getSinglePokemonFn: PropTypes.func,
     getTextFn: PropTypes.func,
