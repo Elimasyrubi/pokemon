@@ -43,7 +43,7 @@ const HomeView = ({
                 previusPageFn={previusPageFn}
                 totalPages={totalPages}
                 page={page}
-            />
+            /> 
             {loading === true ? <Loading /> : (
                 <>
                     {errorResponse === true ? <p>Pokemon not found, please try again</p> : (
