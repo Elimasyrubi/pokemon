@@ -1,4 +1,6 @@
 
+// PropTypes
+import PropTypes from 'prop-types';
 //Dependence
 import { Link } from 'react-router-dom';
 //Components
@@ -32,5 +34,15 @@ const singlePokemonView = ({ pokemon, loading, evolutions }) => {
         </div>
     );
 }
+singlePokemonView.defaultProps = {
+    pokemon: {},
+    loading: false,
+    evolutions: [],
+}
 
+singlePokemonView.propTypes = {
+    pokemon: PropTypes.object,
+    loading: PropTypes.bool,
+    evolutions: PropTypes.array,
+}
 export default singlePokemonView;
