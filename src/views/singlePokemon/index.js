@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import SinglePokemonView from "./presentational";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
@@ -14,6 +15,7 @@ const SinglePokemon = () => {
   let { name } = useParams();
 
   const getsinglePokemon = async () => {
+   
     const url = `https://pokeapi.co/api/v2/pokemon/${name}`;
     try {
       //get pokemon data

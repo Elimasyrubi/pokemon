@@ -96,11 +96,11 @@ const Home = () => {
 
   //fetch single pokemon 
   const getsinglePokemon = async () => {
+    setstate({ loading: true });
     const url = `https://pokeapi.co/api/v2/pokemon/${searchText}`;
     try {
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
       setstate({
         pokemonList: [data],
         loading: false,
@@ -108,6 +108,7 @@ const Home = () => {
       setErrorResponse(false);
     } catch (error) {
       setErrorResponse(true);
+      setstate({ loading: false });
     }
   };
 

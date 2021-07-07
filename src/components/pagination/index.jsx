@@ -25,8 +25,7 @@ const Pagination = ({
         </div>
     );
 };
-Pagination.defaultProps = {
-}
+
 Pagination.propTypes = {
     nextPageFn:PropTypes.func.isRequired,
     previusPageFn:PropTypes.func.isRequired,
