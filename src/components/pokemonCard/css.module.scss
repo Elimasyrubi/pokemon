@@ -1,0 +1,23 @@
+@import '../../general';
+
+.cardcontainer{
+    background-color: $light;
+    border-radius: 5px;
+    border: 1px solid $corderColor;
+    width: 150px;
+    padding: 1rem;
+    margin: .5rem;
+    transition: .3s;
+    &:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+        box-shadow: 0 0 4px #c4c4c4;
+    }   
+    img{
+        width: 100px;
+    }
+    .name{
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+}

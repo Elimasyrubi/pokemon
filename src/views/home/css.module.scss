@@ -1,12 +1,30 @@
-@import '../../general';
-.container{
-    @include generalContainer;
-    text-align: center;
-    .search{
-        height: 3rem;
-        border-radius: 5px ;
-        width: 40rem;
-        box-shadow: 0 0 4px rgb(129, 129, 129);
-        padding:  0 0 0 1rem;
+@import "../../general";
+.container {
+  @include generalContainer;
+  text-align: center;
+  min-height: 100vh;
+  .inputContainer {
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+  }
+  .search {
+    height: 3rem;
+    border-radius: 5px;
+    width: 90%;
+    box-shadow: 0 0 4px rgb(129, 129, 129);
+    padding: 0 0 0 1rem;
+    @media (min-width: 768px) {
+      width: 40rem;
+      margin-right: 2rem;
+    }
+  }
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+  }
 }
