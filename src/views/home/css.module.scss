@@ -4,22 +4,35 @@
   text-align: center;
   min-height: 100vh;
   .inputContainer {
+
+    position: relative;
     @media (min-width: 768px) {
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 20rem;
+      margin: 0 auto;
+    }
+    .cleanIcon{
+      position: absolute;
+      right: 1rem;
+      z-index: 99;
+      background: none;
+      &:hover{
+        cursor: pointer;
+      }
+      i{
+        font-size: 1rem;
+      }
     }
   }
   .search {
     height: 3rem;
     border-radius: 5px;
-    width: 90%;
+    width: 100%;
     box-shadow: 0 0 4px rgb(129, 129, 129);
     padding: 0 0 0 1rem;
-    @media (min-width: 768px) {
-      width: 40rem;
-      margin-right: 2rem;
-    }
+    
   }
   .cardContainer {
     display: flex;

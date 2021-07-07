@@ -25,7 +25,6 @@ const singlePokemonView = ({ pokemon, loading, evolutions }) => {
                                 <span key={item.species.name}>{item.species.name}</span>
                             ))}
                         </p>
-
                     </div>
                 </div>
             )}

@@ -52,25 +52,37 @@ const Home = () => {
 
   //Next Page
   const nextPageFn = () => {
-    console.log(page);
-    setPage(page+1);
+    if(page < totalPages){
+      setPage(page+1);
+    }
   };
 
   //  Previus Page
   const previusPageFn = () => {
-    console.log(page);
-    setPage(page-1);
+    if(page > 0){
+      setPage(page-1);
+    }
+   
   };
 
   //Get informations from input
   const getTextFn = (e) =>{
     setSearchText(e.target.value)
+    if(e.target.value === ''){
+      getPokemonList()
+    }
   }
   //get Single Pokemon
   const getSinglePokemonFn = (e) =>{
     if (e.key === 'Enter') {
      getsinglePokemon();
     }
+  }
+
+  //clean search iput
+  const cleanSearchInputFn = (e) =>{
+    setSearchText('')
+    getPokemonList()
   }
 
 const getsinglePokemon = async () =>{
@@ -98,6 +110,8 @@ const getsinglePokemon = async () =>{
       page={page}
       getTextFn={getTextFn}
       getSinglePokemonFn={getSinglePokemonFn}
+      searchText={searchText}
+      cleanSearchInputFn={cleanSearchInputFn}
       
     />
   );

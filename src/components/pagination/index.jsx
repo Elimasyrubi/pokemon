@@ -14,7 +14,7 @@ const Pagination = ({
             <button 
             onClick={() => previusPageFn()}
             type='button'>
-                    <i className="fas fa-caret-right"></i>
+                    <i className="fas fa-caret-left"></i>
             </button>
             <div> {page} / {totalPages} </div>
             <button

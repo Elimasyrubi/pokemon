@@ -25,10 +25,6 @@ const SinglePokemon = () => {
       const dataEvolutions = await evolutionResponse.json();
       const evolutions = dataEvolutions.chain.evolves_to;
       
-      //evolutions in console because the API return wrong data
-      /* evolutions.forEach(element => {
-        console.log('this pokemon Evolve to', element.species.name)
-      }); */
       setstate({
         data: data,
         loading: false,
